@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const s3Plugin = require('webpack-s3-plugin');
+require('laravel-mix-versionhash');
 
 /*
  |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ mix.js('resources/js/app.js', 'public/js')
   .sass('resources/sass/app.scss', 'public/css');
 
 if (mix.inProduction()) {
-  mix.version();
+  mix.versionHash();
   mix.webpackConfig({
     plugins: [
       new s3Plugin({
